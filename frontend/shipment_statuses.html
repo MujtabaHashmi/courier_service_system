@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Shipment Statuses</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <div class="container min-h-screen flex flex-col">
+        <header class="py-4 border-b border-gray-700">
+            <h1 class="text-4xl font-bold text-center text-white">Courier Service System</h1>
+        </header>
+
+        <nav class="py-4 bg-gray-800 rounded-lg shadow-lg mt-4">
+            <ul class="flex flex-wrap justify-center space-x-4">
+                <li><a href="index.html" class="btn btn-primary">Dashboard</a></li>
+                <li><a href="customers.html" class="btn btn-primary">Customers</a></li>
+                <li><a href="couriers.html" class="btn btn-primary">Couriers</a></li>
+                <li><a href="packages.html" class="btn btn-primary">Packages</a></li>
+                <li><a href="locations.html" class="btn btn-primary">Locations</a></li>
+                <li><a href="shipment_statuses.html" class="btn btn-primary">Shipment Statuses</a></li>
+                <li><a href="shipments.html" class="btn btn-primary">Shipments</a></li>
+                <li><a href="payment_methods.html" class="btn btn-primary">Payment Methods</a></li>
+                <li><a href="payments.html" class="btn btn-primary">Payments</a></li>
+                <li><a href="vehicles.html" class="btn btn-primary">Vehicles</a></li>
+                <li><a href="delivery_history.html" class="btn btn-primary">Delivery History</a></li>
+            </ul>
+        </nav>
+
+        <main class="flex-grow py-8">
+            <section id="add-shipment-status" class="card mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-white">Add New Shipment Status</h2>
+                <form id="addShipmentStatusForm" class="space-y-4">
+                    <div>
+                        <label for="status_name" class="block text-gray-300 text-sm font-bold mb-2">Status Name:</label>
+                        <input type="text" id="status_name" name="status_name" required class="input-field w-full">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full">Add Status</button>
+                </form>
+            </section>
+
+            <section id="view-shipment-statuses" class="card">
+                <h2 class="text-2xl font-bold mb-4 text-white">All Shipment Statuses</h2>
+                <div class="table-container">
+                    <table id="shipmentStatusesTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Status Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Shipment status data will be loaded here by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <footer class="py-4 text-center text-gray-400 border-t border-gray-700 mt-8">
+            <p>&copy; 2024 Courier Service System. All rights reserved.</p>
+        </footer>
+    </div>
+    <div id="messageBox" class="message-box"></div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Shipments</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <div class="container min-h-screen flex flex-col">
+        <header class="py-4 border-b border-gray-700">
+            <h1 class="text-4xl font-bold text-center text-white">Courier Service System</h1>
+        </header>
+
+        <nav class="py-4 bg-gray-800 rounded-lg shadow-lg mt-4">
+            <ul class="flex flex-wrap justify-center space-x-4">
+                <li><a href="index.html" class="btn btn-primary">Dashboard</a></li>
+                <li><a href="customers.html" class="btn btn-primary">Customers</a></li>
+                <li><a href="couriers.html" class="btn btn-primary">Couriers</a></li>
+                <li><a href="packages.html" class="btn btn-primary">Packages</a></li>
+                <li><a href="locations.html" class="btn btn-primary">Locations</a></li>
+                <li><a href="shipment_statuses.html" class="btn btn-primary">Shipment Statuses</a></li>
+                <li><a href="shipments.html" class="btn btn-primary">Shipments</a></li>
+                <li><a href="payment_methods.html" class="btn btn-primary">Payment Methods</a></li>
+                <li><a href="payments.html" class="btn btn-primary">Payments</a></li>
+                <li><a href="vehicles.html" class="btn btn-primary">Vehicles</a></li>
+                <li><a href="delivery_history.html" class="btn btn-primary">Delivery History</a></li>
+            </ul>
+        </nav>
+
+        <main class="flex-grow py-8">
+            <section id="add-shipment" class="card mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-white">Add New Shipment</h2>
+                <form id="addShipmentForm" class="space-y-4">
+                    <div>
+                        <label for="customer_id" class="block text-gray-300 text-sm font-bold mb-2">Customer ID:</label>
+                        <input type="number" id="shipment_customer_id" name="customer_id" required class="input-field w-full">
+                    </div>
+                    <div>
+                        <label for="courier_id" class="block text-gray-300 text-sm font-bold mb-2">Courier ID (optional):</label>
+                        <input type="number" id="shipment_courier_id" name="courier_id" class="input-field w-full">
+                    </div>
+                    <div>
+                        <label for="package_id" class="block text-gray-300 text-sm font-bold mb-2">Package ID:</label>
+                        <input type="number" id="shipment_package_id" name="package_id" required class="input-field w-full">
+                    </div>
+                    <div>
+                        <label for="origin_location_id" class="block text-gray-300 text-sm font-bold mb-2">Origin Location ID:</label>
+                        <input type="number" id="shipment_origin_location_id" name="origin_location_id" required class="input-field w-full">
+                    </div>
+                    <div>
+                        <label for="destination_location_id" class="block text-gray-300 text-sm font-bold mb-2">Destination Location ID:</label>
+                        <input type="number" id="shipment_destination_location_id" name="destination_location_id" required class="input-field w-full">
+                    </div>
+                    <div>
+                        <label for="current_status_id" class="block text-gray-300 text-sm font-bold mb-2">Current Status ID:</label>
+                        <input type="number" id="shipment_current_status_id" name="current_status_id" required class="input-field w-full">
+                    </div>
+                    <div>
+                        <label for="tracking_number" class="block text-gray-300 text-sm font-bold mb-2">Tracking Number:</label>
+                        <input type="text" id="tracking_number" name="tracking_number" required class="input-field w-full">
+                    </div>
+                    <div>
+                        <label for="shipment_date" class="block text-gray-300 text-sm font-bold mb-2">Shipment Date (YYYY-MM-DDTHH:MM:SS):</label>
+                        <input type="datetime-local" id="shipment_date" name="shipment_date" class="input-field w-full">
+                    </div>
+                    <div>
+                        <label for="estimated_delivery_date" class="block text-gray-300 text-sm font-bold mb-2">Estimated Delivery Date:</label>
+                        <input type="date" id="estimated_delivery_date" name="estimated_delivery_date" class="input-field w-full">
+                    </div>
+                    <div>
+                        <label for="actual_delivery_date" class="block text-gray-300 text-sm font-bold mb-2">Actual Delivery Date (optional):</label>
+                        <input type="date" id="actual_delivery_date" name="actual_delivery_date" class="input-field w-full">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full">Add Shipment</button>
+                </form>
+            </section>
+
+            <section id="view-shipments" class="card">
+                <h2 class="text-2xl font-bold mb-4 text-white">All Shipments</h2>
+                <div class="table-container">
+                    <table id="shipmentsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Customer ID</th>
+                                <th>Courier ID</th>
+                                <th>Package ID</th>
+                                <th>Origin Location ID</th>
+                                <th>Destination Location ID</th>
+                                <th>Current Status ID</th>
+                                <th>Tracking Number</th>
+                                <th>Shipment Date</th>
+                                <th>Est. Delivery Date</th>
+                                <th>Act. Delivery Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Shipment data will be loaded here by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <footer class="py-4 text-center text-gray-400 border-t border-gray-700 mt-8">
+            <p>&copy; 2024 Courier Service System. All rights reserved.</p>
+        </footer>
+    </div>
+    <div id="messageBox" class="message-box"></div>
+    <script src="script.js"></script>
+</body>
+</html>
